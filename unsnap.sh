@@ -53,10 +53,8 @@ for PKG in "${PKGS[@]}"; do
     snap remove "$PKG"
 done
 
-#  delete core snap after every other snaps
-snap remove core22
-snap remove snapd
-#echo "[enter]"; read enterKey
+#  delete core22 snapd after every other snaps
+snap remove core22 snapd
 
 #  Remove Snap Daemon
 systemctl stop snapd
@@ -89,8 +87,7 @@ echo "[enter]"; read enterKey
 nano /etc/apt/preferences.d/nosnap.pref
 #chmod -w /etc/apt/preferences.d
 
-#Installing Firefox as DEB
-#echo "[Installing Firefox as ,deb enter]"; read enterKey
+#Installing Firefox as DEB #########
 apt update
 
 #  command to create an apt keyring
