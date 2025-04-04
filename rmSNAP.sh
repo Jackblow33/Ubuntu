@@ -23,7 +23,11 @@ timer_stop()
     echo Time elapsed: $MINS:`printf %02d $SECS`
 }
 
-
+# Make sure only root can run the script -----------#
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
 
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
 sudo apt update && sudo apt upgrade -y
@@ -68,7 +72,7 @@ sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
 #  Then copy create & add lines to /etc/apt/preferences.d/nosnap.pref
-cp /etc/apt/preferences.d/nosnap.pref_$TIMESTAMP
+mv /etc/apt/preferences.d/nosnap.pref /etc/apt/preferences.d/nosnap.pref_$TIMESTAMP
 sudo touch /etc/apt/preferences.d/nosnap.pref
 sudo chmod +rw /etc/apt/preferences.d/nosnap.pref   #read write permission
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
