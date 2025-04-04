@@ -19,7 +19,7 @@ timer_stop()
     let DIFF=$(($NOW - $BEGIN))
     let MINS=$(($DIFF / 60))
     let SECS=$(($DIFF % 60))
-    echo Time elapsed: $MINS:`printf %02d $SECS` >> $LOGFILE
+    echo Time elapsed: $MINS:`printf %02d $SECS`
 }
 
 
