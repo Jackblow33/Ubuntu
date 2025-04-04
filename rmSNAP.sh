@@ -68,8 +68,8 @@ sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
 #  Then create & add lines to /etc/apt/preferences.d/nosnap.pref
-#sudo touch /etc/apt/preferences.d/nosnap.pref
 cp /etc/apt/preferences.d/nosnap.pref_$TIMESTAMP
+sudo touch /etc/apt/preferences.d/nosnap.pref
 sudo chmod +rw /etc/apt/preferences.d/nosnap.pref   #read write permission
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
