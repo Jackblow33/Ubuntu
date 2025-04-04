@@ -6,9 +6,6 @@
 #echo " Before removing snap packages from Ubuntu it is recommended to backup your system using time shift [enter]"; read enterKey
 #sudo apt install timeshift
 
-#  Check Snap List
-#snap list
-
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
 
 sudo snap remove firefox
@@ -21,14 +18,14 @@ sudo snap remove bare
 sudo snap remove desktop-security-center
 sudo snap remove prompting-client
 
-#  After deleting these packages you need to delete core snap
+#  delete core snap
 sudo snap remove core22
 sudo snap remove snapd
 echo "[enter]"; read enterKey
 
 #  Once everything is deleted, type snap list and you will see no snaps are installed
 snap list
-echo "[Check if no snaps are installed [enter]"; read enterKey
+echo "[enter]"; read enterKey
 
 
 #  Remove Snap Daemon
@@ -50,9 +47,9 @@ sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
-#  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
-#SET PERMISSION OF /etc/apt/preferences.d
-sudo chmod 755 /etc/apt/preferences.d
+#  Then create & add lines to /etc/apt/preferences.d/nosnap.pref
+sudo touch /etc/apt/preferences.d/nosnap.pref
+sudo chmod +rw /etc/apt/preferences.d/nosnap.pref   #Permission read write
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
