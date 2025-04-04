@@ -1,27 +1,34 @@
+#!/bin/bash
 
+#Remove Snap Packages From Ubuntu & install firefox as deb
+#Source https://kskroyal.com/remove-snap-packages-from-ubuntu/
 
-#Remove Snap Packages From Ubuntu
-
-#  Before removing snap packages from Ubuntu it is recommended to backup your system using time shift
+echo " Before removing snap packages from Ubuntu it is recommended to backup your system using time shift [enter]"; read enterKey
 sudo apt install timeshift
 
 #  Check Snap List
-snap list
+#snap list
 
-#  Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal
+echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
+}
 sudo snap remove firefox
+Notes #
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
 sudo snap remove snapd-desktop-integration
 sudo snap remove snap-store
 sudo snap remove firmware-updater
-sudo snap remove bare
+sudo snap remove bare  
+desktop-security-center  #
+prompting-client  #
 
 #  After deleting these packages you need to delete core snap
 sudo snap remove core22
 sudo snap remove snapd
 
-#  Once everything is deleted, type snap list and you will see no snaps are installedOnce everything is deleted, type snap list and you will see no snaps are installed
+
+#  Once everything is deleted, type snap list and you will see no snaps are installed
+echo "[Check if no snaps are installed [enter]"; read enterKey
 
 
 #  Remove Snap Daemon
@@ -43,14 +50,16 @@ sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
+#  Then add these lines exactly as you see over here
+echo "add these lines [enter]"; read enterKey
+echo  "Package: snapd"
+echo "Pin: release a=*"
+echo "Pin-Priority: -10"
 #  Prevent Snap from reinstalling
 sudo nano /etc/apt/preferences.d/nosnap.pref
 
-#  Then add these lines exactly as you see over here
-Package: snapd
-Pin: release a=*
-Pin-Priority: -10
-
+#Installing Firefox as DEB
+echo "[Installing Firefox as DEB enter]"; read enterKey
 sudo apt update
 
 #  command to create an apt keyring
@@ -75,5 +84,6 @@ sudo apt-get update && sudo apt-get install firefox
 #  Gnome App Store
 sudo apt install --install-suggests gnome-software
 
-#sudo reboot
+echo "Reboot now [enter]"; read enterKey
+sudo reboot
 
