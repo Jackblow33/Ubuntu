@@ -51,7 +51,7 @@ sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
-#  Then add these lines exactly as you see over here
+#  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
 echo "add these lines [enter]"; read enterKey
 echo  "Package: snapd"
 echo "Pin: release a=*"
