@@ -53,14 +53,14 @@ sudo rm -rf /var/lib/snapd
 
 #  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
 #SET PERMISSION OF /etc/apt/preferences.d
-chmod +w /etc/apt/preferences.d
+sudo chmod +w /etc/apt/preferences.d
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
 echo "[enter]"; read enterKey
 #  Prevent Snap from reinstalling
 sudo nano /etc/apt/preferences.d/nosnap.pref
-chmod -w /etc/apt/preferences.d
+sudo chmod -w /etc/apt/preferences.d
 
 #Installing Firefox as DEB
 echo "[Installing Firefox as ,deb enter]"; read enterKey
