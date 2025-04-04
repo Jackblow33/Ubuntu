@@ -28,6 +28,7 @@ sudo snap remove snapd
 
 
 #  Once everything is deleted, type snap list and you will see no snaps are installed
+snap list
 echo "[Check if no snaps are installed [enter]"; read enterKey
 
 
