@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Execute as root
+#Execute as root and chmod +x unsnap.sh
 #Remove Snap Packages from Ubuntu 24.04-25.04 & install firefox as deb
 #Source https://kskroyal.com/remove-snap-packages-from-ubuntu/
 
