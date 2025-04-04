@@ -25,7 +25,7 @@ sudo snap remove prompting-client  #
 #  After deleting these packages you need to delete core snap
 sudo snap remove core22
 sudo snap remove snapd
-
+echo "[enter]"; read enterKey
 
 #  Once everything is deleted, type snap list and you will see no snaps are installed
 snap list
@@ -52,10 +52,11 @@ sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
 #  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
-echo "add these lines [enter]"; read enterKey
-echo  "Package: snapd"
-echo "Pin: release a=*"
-echo "Pin-Priority: -10"
+
+echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
+echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
+echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
+echo "[enter]"; read enterKey
 #  Prevent Snap from reinstalling
 sudo nano /etc/apt/preferences.d/nosnap.pref
 
@@ -72,7 +73,7 @@ wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /et
 #  Mozilla signing keys to the apt source list
 echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
 
-#  Vonfigure apt to prioritize packages from the Mozilla repository
+#  Configure apt to prioritize packages from the Mozilla repository
 echo '
 Package: *
 Pin: origin packages.mozilla.org
