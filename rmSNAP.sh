@@ -3,6 +3,26 @@
 #Remove Snap Packages From Ubuntu 24.04-25.04 install firefox as deb
 #Source https://kskroyal.com/remove-snap-packages-from-ubuntu/
 
+#variable
+TIMESTAMP=`date +%Y%m%d.%R`
+
+#fonction
+timer_start()
+{
+BEGIN=$(date +%s)
+}
+
+#fonction
+timer_stop()
+{
+    NOW=$(date +%s)
+    let DIFF=$(($NOW - $BEGIN))
+    let MINS=$(($DIFF / 60))
+    let SECS=$(($DIFF % 60))
+    echo Time elapsed: $MINS:`printf %02d $SECS` >> $LOGFILE
+}
+
+
 #echo " Before removing snap packages from Ubuntu it is recommended to backup your system using time shift [enter]"; read enterKey
 #sudo apt install timeshift
 
@@ -48,8 +68,9 @@ sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
 #  Then create & add lines to /etc/apt/preferences.d/nosnap.pref
-sudo touch /etc/apt/preferences.d/nosnap.pref
-sudo chmod 777 /etc/apt/preferences.d/nosnap.pref   #Full permission Beware
+#sudo touch /etc/apt/preferences.d/nosnap.pref
+cp /etc/apt/preferences.d/nosnap.pref_$TIMESTAMP
+sudo chmod 777 /etc/apt/preferences.d/nosnap.pref   #Full permission
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
@@ -82,7 +103,7 @@ Pin-Priority: 1000
 sudo apt-get update && sudo apt-get install firefox
 
 #  Gnome App Store
-sudo apt install --install-suggests gnome-software
+sudo apt install --install-suggests gnome-software -y
 
 echo "Reboot now [enter]"; read enterKey
 sudo reboot
