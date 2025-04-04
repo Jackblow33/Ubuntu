@@ -28,6 +28,7 @@ timer_stop()
 
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
 sudo apt update && sudo apt upgrade
+timer_start
 sudo snap remove firefox
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
@@ -41,11 +42,11 @@ sudo snap remove prompting-client
 #  delete core snap
 sudo snap remove core22
 sudo snap remove snapd
-echo "[enter]"; read enterKey
+#echo "[enter]"; read enterKey
 
 #  Once everything is deleted, type snap list and you will see no snaps are installed
 snap list
-echo "[enter]"; read enterKey
+#echo "[enter]"; read enterKey
 
 
 #  Remove Snap Daemon
@@ -80,7 +81,7 @@ sudo nano /etc/apt/preferences.d/nosnap.pref
 sudo chmod -w /etc/apt/preferences.d
 
 #Installing Firefox as DEB
-echo "[Installing Firefox as ,deb enter]"; read enterKey
+#echo "[Installing Firefox as ,deb enter]"; read enterKey
 sudo apt update
 
 #  command to create an apt keyring
@@ -104,6 +105,7 @@ sudo apt-get update && sudo apt-get install firefox
 
 #  Gnome App Store
 sudo apt install --install-suggests gnome-software -y
+timer_stop
 
 echo "Reboot now [enter]"; read enterKey
 sudo reboot
