@@ -27,7 +27,7 @@ timer_stop()
 #sudo apt install timeshift
 
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
-
+sudo apt update && sudo apt upgrade
 sudo snap remove firefox
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
