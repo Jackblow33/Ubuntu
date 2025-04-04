@@ -53,9 +53,9 @@ sudo rm -rf /var/lib/snapd
 
 #  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
 
-echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
-echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
-echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
+sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
+sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
+sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
 echo "[enter]"; read enterKey
 #  Prevent Snap from reinstalling
 sudo nano /etc/apt/preferences.d/nosnap.pref
