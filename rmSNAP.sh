@@ -12,7 +12,6 @@
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
 
 sudo snap remove firefox
-sudo snap remove Notes
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
 sudo snap remove snapd-desktop-integration
