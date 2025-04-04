@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Remove Snap Packages From Ubuntu & install firefox as deb
+#Remove Snap Packages From Ubuntu 24.04-25.04 install firefox as deb
 #Source https://kskroyal.com/remove-snap-packages-from-ubuntu/
 
 #echo " Before removing snap packages from Ubuntu it is recommended to backup your system using time shift [enter]"; read enterKey
