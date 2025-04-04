@@ -52,7 +52,7 @@ sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
 #  Then add these lines exactly as you see over here   ################# Automate this!!!!!!
-
+##### ADD SET PERMISSION OF /etc/apt/preferences.d ######################################################################################
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
@@ -61,7 +61,7 @@ echo "[enter]"; read enterKey
 sudo nano /etc/apt/preferences.d/nosnap.pref
 
 #Installing Firefox as DEB
-echo "[Installing Firefox as DEB enter]"; read enterKey
+echo "[Installing Firefox as ,deb enter]"; read enterKey
 sudo apt update
 
 #  command to create an apt keyring
