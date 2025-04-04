@@ -49,7 +49,7 @@ sudo rm -rf /var/lib/snapd
 
 #  Then create & add lines to /etc/apt/preferences.d/nosnap.pref
 sudo touch /etc/apt/preferences.d/nosnap.pref
-sudo chmod +rw /etc/apt/preferences.d/nosnap.pref   #Permission read write
+sudo chmod 777 /etc/apt/preferences.d/nosnap.pref   #Full permission Beware
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
