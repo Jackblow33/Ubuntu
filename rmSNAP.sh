@@ -12,15 +12,15 @@
 echo "Before removing snaps packages from Ubuntu, ensure there is no app running in the background except the terminal [enter]"; read enterKey
 
 sudo snap remove firefox
-sudo snap remove Notes #
+sudo snap remove Notes
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
 sudo snap remove snapd-desktop-integration
 sudo snap remove snap-store
 sudo snap remove firmware-updater
 sudo snap remove bare  
-sudo snap remove desktop-security-center  #
-sudo snap remove prompting-client  #
+sudo snap remove desktop-security-center
+sudo snap remove prompting-client
 
 #  After deleting these packages you need to delete core snap
 sudo snap remove core22
