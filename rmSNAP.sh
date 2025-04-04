@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Execute as root
 #Remove Snap Packages from Ubuntu 24.04-25.04 install firefox as deb
 #Source https://kskroyal.com/remove-snap-packages-from-ubuntu/
 
@@ -69,7 +70,7 @@ sudo rm -rf /var/lib/snapd
 #  Then create & add lines to /etc/apt/preferences.d/nosnap.pref
 #sudo touch /etc/apt/preferences.d/nosnap.pref
 cp /etc/apt/preferences.d/nosnap.pref_$TIMESTAMP
-sudo chmod 777 /etc/apt/preferences.d/nosnap.pref   #Full permission
+sudo chmod +rw /etc/apt/preferences.d/nosnap.pref   #read write permission
 sudo echo  "Package: snapd" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin: release a=*" >> /etc/apt/preferences.d/nosnap.pref
 sudo echo "Pin-Priority: -10" >> /etc/apt/preferences.d/nosnap.pref
