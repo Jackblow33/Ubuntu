@@ -115,3 +115,7 @@ timer_stop
 
 echo "Reboot now. Press [enter]"; read enterKey
 reboot
+
+#If needed install Thunderbird via flatpack, Chromium via scripts ( https://github.com/scheib/chromium-latest-linux )
+#sudo apt-get install flatpak
+#sudo apt-get install discover-flatpak-backend
