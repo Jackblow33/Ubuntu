@@ -1,2 +1,8 @@
 # Uninstall, fix modeset & fix PreserveVideoMemoryAllocations
-https://github.com/oddmario/NVIDIA-Ubuntu-Driver-Guide/blob/main/README.md#uninstalling-the-driver-when-installed-through-the-official-nvidia-installer-from-the-nvidiacom-website
+# Source https://github.com/oddmario/NVIDIA-Ubuntu-Driver-Guide/blob/main/README.md#uninstalling-the-driver-when-installed-through-the-official-nvidia-installer-from-the-nvidiacom-website
+
+Wayland is not shown as an option on the login screen (or the cog icon of the login screen doesn't show at all)
+Edit the /etc/gdm3/custom.conf file using sudo nano /etc/gdm3/custom.conf
+Ensure that WaylandEnable=true is set in that file and make sure that it's uncommented (does not start with a #)
+Run sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+Reboot the system
