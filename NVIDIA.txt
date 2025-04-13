@@ -1,0 +1,2 @@
+# Uninstall, fix modeset & fix PreserveVideoMemoryAllocations
+https://github.com/oddmario/NVIDIA-Ubuntu-Driver-Guide/blob/main/README.md#uninstalling-the-driver-when-installed-through-the-official-nvidia-installer-from-the-nvidiacom-website
