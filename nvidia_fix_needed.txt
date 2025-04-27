@@ -1,0 +1,1 @@
+Looks like only power-management fix needed on Haswell system.
